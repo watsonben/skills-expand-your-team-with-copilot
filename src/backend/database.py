@@ -2,14 +2,76 @@
 MongoDB database configuration and setup for Mergington High School API
 """
 
-from pymongo import MongoClient
+# For development/testing without MongoDB, use in-memory storage
+import json
 from argon2 import PasswordHasher
 
-# Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
-db = client['mergington_high']
-activities_collection = db['activities']
-teachers_collection = db['teachers']
+# In-memory storage (simulating MongoDB collections)
+activities_data = {}
+teachers_data = {}
+
+class MockCollection:
+    def __init__(self, data_dict):
+        self.data = data_dict
+    
+    def find(self, query=None):
+        if query is None:
+            for key, value in self.data.items():
+                yield {"_id": key, **value}
+        else:
+            # Simple query support for day filtering
+            for key, value in self.data.items():
+                match = True
+                if "schedule_details.days" in query:
+                    day_filter = query["schedule_details.days"]["$in"][0]
+                    if day_filter not in value.get("schedule_details", {}).get("days", []):
+                        match = False
+                if match:
+                    yield {"_id": key, **value}
+    
+    def find_one(self, query):
+        if isinstance(query, dict) and "_id" in query:
+            key = query["_id"]
+            if key in self.data:
+                return {"_id": key, **self.data[key]}
+        return None
+    
+    def count_documents(self, query):
+        return len(self.data)
+    
+    def insert_one(self, doc):
+        key = doc.pop("_id")
+        self.data[key] = doc
+        return type('Result', (), {'inserted_id': key})()
+    
+    def update_one(self, query, update):
+        if "_id" in query:
+            key = query["_id"]
+            if key in self.data:
+                if "$push" in update:
+                    field, value = list(update["$push"].items())[0]
+                    if field not in self.data[key]:
+                        self.data[key][field] = []
+                    self.data[key][field].append(value)
+                    return type('Result', (), {'modified_count': 1})()
+                elif "$pull" in update:
+                    field, value = list(update["$pull"].items())[0]
+                    if field in self.data[key] and value in self.data[key][field]:
+                        self.data[key][field].remove(value)
+                        return type('Result', (), {'modified_count': 1})()
+        return type('Result', (), {'modified_count': 0})()
+    
+    def aggregate(self, pipeline):
+        # Simple aggregation for getting unique days
+        days = set()
+        for value in self.data.values():
+            if "schedule_details" in value and "days" in value["schedule_details"]:
+                days.update(value["schedule_details"]["days"])
+        return [{"_id": day} for day in sorted(days)]
+
+# Create mock collections
+activities_collection = MockCollection(activities_data)
+teachers_collection = MockCollection(teachers_data)
 
 # Methods
 def hash_password(password):
@@ -163,6 +225,17 @@ initial_activities = {
         },
         "max_participants": 16,
         "participants": ["william@mergington.edu", "jacob@mergington.edu"]
+    },
+    "Manga Maniacs": {
+        "description": "Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).",
+        "schedule": "Tuesdays at 7pm",
+        "schedule_details": {
+            "days": ["Tuesday"],
+            "start_time": "19:00",
+            "end_time": "20:00"
+        },
+        "max_participants": 15,
+        "participants": []
     }
 }
 
