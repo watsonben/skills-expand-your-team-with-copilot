@@ -1,0 +1,174 @@
+name: 👥 Student Management Request
+description: Request help with student enrollment, registration, or account issues
+title: "[STUDENT MGMT]: "
+labels: ["student-management", "teacher-request"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request help with student-related tasks like enrollment changes, registration issues, or account problems.
+        
+        **All fields marked with * are required.**
+  
+  - type: dropdown
+    id: request-type
+    attributes:
+      label: Type of Request *
+      description: What kind of help do you need?
+      options:
+        - Register student for activity
+        - Remove student from activity
+        - Transfer student between activities
+        - Fix student registration issue
+        - Bulk register multiple students
+        - Bulk remove multiple students
+        - Check student enrollment status
+        - Other student issue
+    validations:
+      required: true
+  
+  - type: input
+    id: student-email
+    attributes:
+      label: Student Email Address
+      description: Email of the student (for single student requests)
+      placeholder: "e.g., student@mergington.edu"
+    validations:
+      required: false
+  
+  - type: textarea
+    id: student-list
+    attributes:
+      label: Multiple Student Emails
+      description: For bulk operations, list all student emails (one per line)
+      placeholder: |
+        student1@mergington.edu
+        student2@mergington.edu
+        student3@mergington.edu
+      value: ""
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: activity-name
+    attributes:
+      label: Activity Name
+      description: Which activity is this request related to?
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Manga Maniacs
+        - Other (specify below)
+    validations:
+      required: false
+  
+  - type: input
+    id: other-activity
+    attributes:
+      label: Other Activity Name
+      description: If you selected "Other" above, specify the activity name
+      placeholder: "Enter the exact activity name"
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: target-activity
+    attributes:
+      label: Target Activity (for transfers)
+      description: If transferring a student, which activity should they be moved TO?
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Manga Maniacs
+        - Other (specify in details)
+    validations:
+      required: false
+  
+  - type: textarea
+    id: reason-for-request
+    attributes:
+      label: Reason for Request *
+      description: Why is this change needed?
+      placeholder: "e.g., Student changed their schedule, Parent requested the change, Student no longer interested, Schedule conflict with another activity"
+      value: ""
+    validations:
+      required: true
+  
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Details (if applicable)
+      description: If there's an issue with registration, describe what's happening
+      placeholder: "e.g., Student tried to register but got an error, Student shows as registered but isn't receiving activity emails, Student can't log in to see their activities"
+      value: ""
+    validations:
+      required: false
+  
+  - type: input
+    id: teacher-contact
+    attributes:
+      label: Your Contact Information *
+      description: Your name and email for follow-up
+      placeholder: "e.g., Ms. Johnson - mjohnson@mergington.edu"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How urgent is this request? *
+      description: When does this need to be completed?
+      options:
+        - Today - Student needs immediate access
+        - This week - Before next activity session
+        - Next week - Before end of month
+        - Next month - No immediate deadline
+        - End of semester - Long-term planning
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: permissions
+    attributes:
+      label: Permissions and Notifications *
+      description: Please confirm the following
+      options:
+        - label: I have permission to make changes for this/these student(s)
+          required: true
+        - label: I will notify the student(s) and parents about any changes
+          required: true
+        - label: I have verified the student email addresses are correct
+          required: false
+    validations:
+      required: true
+  
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Information
+      description: Any other details that would help us process this request?
+      placeholder: "e.g., Student has special accommodation needs, Parent contact information, Related to previous request #123"
+      value: ""
+    validations:
+      required: false

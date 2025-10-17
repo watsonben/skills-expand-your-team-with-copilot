@@ -1,0 +1,163 @@
+name: ✏️ Modify Existing Activity
+description: Request changes to an existing activity's schedule, description, or settings
+title: "[MODIFY ACTIVITY]: "
+labels: ["enhancement", "modify-activity", "teacher-request"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request changes to an existing activity. Please be specific about what needs to be changed so our development team can make the updates accurately.
+        
+        **All fields marked with * are required.**
+  
+  - type: dropdown
+    id: existing-activity
+    attributes:
+      label: Existing Activity Name *
+      description: Which activity needs to be modified?
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Manga Maniacs
+        - Other (specify in details)
+    validations:
+      required: true
+  
+  - type: input
+    id: other-activity
+    attributes:
+      label: Other Activity Name
+      description: If you selected "Other" above, please specify the activity name
+      placeholder: "Enter the exact name of the activity"
+    validations:
+      required: false
+  
+  - type: checkboxes
+    id: change-type
+    attributes:
+      label: What needs to be changed? *
+      description: Select all that apply
+      options:
+        - label: Schedule (days or times)
+        - label: Description
+        - label: Maximum number of participants
+        - label: Activity category
+        - label: Remove/discontinue the activity
+        - label: Other changes (explain in details)
+    validations:
+      required: true
+  
+  - type: textarea
+    id: schedule-changes
+    attributes:
+      label: Schedule Changes
+      description: If changing schedule, provide the NEW schedule details
+      placeholder: |
+        Current: Mondays and Fridays, 3:15 PM - 4:45 PM
+        New: Tuesdays and Thursdays, 3:30 PM - 5:00 PM
+        
+        Or describe the specific changes needed
+      value: ""
+    validations:
+      required: false
+  
+  - type: textarea
+    id: description-changes
+    attributes:
+      label: Description Changes
+      description: If changing description, provide the NEW description or specify what to change
+      placeholder: "Provide the complete new description, or explain what parts of the current description need to be updated"
+      value: ""
+    validations:
+      required: false
+  
+  - type: input
+    id: participant-limit
+    attributes:
+      label: New Participant Limit
+      description: If changing capacity, what should the new maximum number be?
+      placeholder: "e.g., 25, 15, 40"
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: new-category
+    attributes:
+      label: New Category
+      description: If changing category, what should the new category be?
+      options:
+        - Sports
+        - Arts
+        - Academic
+        - Community
+        - Technology
+        - Other
+    validations:
+      required: false
+  
+  - type: textarea
+    id: reason-for-change
+    attributes:
+      label: Reason for Change *
+      description: Why are these changes needed? This helps us understand the priority and context.
+      placeholder: "e.g., Room conflict with another activity, Student interest has grown, Teacher schedule changed, Equipment availability"
+      value: ""
+    validations:
+      required: true
+  
+  - type: input
+    id: teacher-contact
+    attributes:
+      label: Teacher/Supervisor Contact *
+      description: Your name and email for follow-up questions
+      placeholder: "e.g., Ms. Johnson - mjohnson@mergington.edu"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: When do these changes need to take effect? *
+      description: Timeline for implementing changes
+      options:
+        - Immediately - This week
+        - Next week
+        - Next month
+        - Next semester
+        - Next school year
+        - No specific deadline
+    validations:
+      required: true
+  
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Details
+      description: Any other important information about these changes?
+      placeholder: "Special considerations, impact on current students, coordination needed with other activities, etc."
+      value: ""
+    validations:
+      required: false
+  
+  - type: checkboxes
+    id: student-notification
+    attributes:
+      label: Student Communication
+      description: How should current participants be notified?
+      options:
+        - label: I will notify current students about the changes
+        - label: Please help coordinate communication with students
+        - label: No current students to notify
+    validations:
+      required: false

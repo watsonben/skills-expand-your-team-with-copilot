@@ -1,0 +1,135 @@
+name: 🎯 Add New Activity/Club
+description: Request to add a new extracurricular activity or club to the school system
+title: "[NEW ACTIVITY]: "
+labels: ["enhancement", "new-activity", "teacher-request"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for requesting a new activity! Please fill out this form completely so our development team can add your activity to the system quickly and accurately.
+        
+        **All fields marked with * are required.**
+  
+  - type: input
+    id: activity-name
+    attributes:
+      label: Activity/Club Name *
+      description: What is the official name of this activity or club?
+      placeholder: e.g., "Robotics Club", "Advanced Chemistry Lab", "Volleyball Team"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: activity-description
+    attributes:
+      label: Activity Description *
+      description: Provide a clear, engaging description that students and parents will see
+      placeholder: "Describe what students will do, learn, or achieve in this activity. Include any special requirements or benefits."
+      value: ""
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: activity-category
+    attributes:
+      label: Activity Category *
+      description: Which category best fits this activity?
+      options:
+        - Sports
+        - Arts
+        - Academic
+        - Community
+        - Technology
+        - Other
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: schedule-days
+    attributes:
+      label: Days of the Week *
+      description: Select all days when this activity meets
+      options:
+        - label: Monday
+        - label: Tuesday
+        - label: Wednesday
+        - label: Thursday
+        - label: Friday
+        - label: Saturday
+        - label: Sunday
+    validations:
+      required: true
+  
+  - type: input
+    id: start-time
+    attributes:
+      label: Start Time *
+      description: When does the activity start? (Use 24-hour format)
+      placeholder: "e.g., 15:30 for 3:30 PM, 07:00 for 7:00 AM"
+    validations:
+      required: true
+  
+  - type: input
+    id: end-time
+    attributes:
+      label: End Time *
+      description: When does the activity end? (Use 24-hour format)
+      placeholder: "e.g., 17:00 for 5:00 PM, 08:30 for 8:30 AM"
+    validations:
+      required: true
+  
+  - type: input
+    id: max-participants
+    attributes:
+      label: Maximum Number of Participants *
+      description: What's the maximum number of students that can participate?
+      placeholder: "e.g., 20, 15, 30"
+    validations:
+      required: true
+  
+  - type: input
+    id: teacher-contact
+    attributes:
+      label: Teacher/Supervisor Contact *
+      description: Your name and email for follow-up questions
+      placeholder: "e.g., Ms. Johnson - mjohnson@mergington.edu"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: special-requirements
+    attributes:
+      label: Special Requirements or Notes
+      description: Any special equipment, room requirements, prerequisites, or other important details?
+      placeholder: "e.g., Requires computer lab access, Students must have completed Physics I, Bring your own athletic shoes"
+      value: ""
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How urgent is this request?
+      options:
+        - High - Needed for next semester
+        - Medium - Needed this school year
+        - Low - Nice to have when possible
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm you understand the following
+      options:
+        - label: I have administrative approval to add this activity
+          required: true
+        - label: I will be available to supervise or coordinate this activity
+          required: true
+        - label: I understand this request will be reviewed and may take time to implement
+          required: true
+    validations:
+      required: true

@@ -1,0 +1,155 @@
+name: ✨ Feature Request
+description: Suggest a new feature or improvement for the school activities system
+title: "[FEATURE]: "
+labels: ["enhancement", "feature-request"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We'd love to hear your ideas for improving the school activities system! Your suggestions help us make the system more useful for teachers and students.
+        
+        **All fields marked with * are required.**
+  
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: What type of feature is this? *
+      description: Which area would this feature improve?
+      options:
+        - Student experience (browsing, registration)
+        - Teacher management tools
+        - Reporting and analytics
+        - Communication features
+        - Scheduling and calendar
+        - Data import/export
+        - Mobile app functionality
+        - System administration
+        - Other/Multiple areas
+    validations:
+      required: true
+  
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description *
+      description: Describe the feature you'd like to see. Be as detailed as possible.
+      placeholder: "e.g., I would like a calendar view that shows all activities for the week so students can easily see schedule conflicts. Or: I need a way to export student registration lists to Excel for attendance tracking."
+      value: ""
+    validations:
+      required: true
+  
+  - type: textarea
+    id: problem-solving
+    attributes:
+      label: What problem would this solve? *
+      description: Explain why this feature is needed and what challenges it would address
+      placeholder: "e.g., Currently students have to click through each activity individually to check schedules, which is time-consuming. Teachers spend too much time manually tracking attendance in separate spreadsheets."
+      value: ""
+    validations:
+      required: true
+  
+  - type: textarea
+    id: current-workaround
+    attributes:
+      label: How do you handle this now?
+      description: What's your current process or workaround for this need?
+      placeholder: "e.g., I manually create a weekly schedule in Google Docs and email it to students. I export data and manually format it in Excel every week."
+      value: ""
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: user-impact
+    attributes:
+      label: Who would benefit from this feature? *
+      description: Which users would find this helpful?
+      options:
+        - Primarily students
+        - Primarily teachers
+        - Both students and teachers
+        - School administrators
+        - Parents
+        - Everyone
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often would this feature be used? *
+      description: This helps us prioritize development
+      options:
+        - Daily
+        - Weekly
+        - Monthly
+        - Each semester
+        - A few times per year
+        - As needed
+    validations:
+      required: true
+  
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: How would you know this feature is working correctly?
+      description: What should happen when someone uses this feature? Describe the expected behavior.
+      placeholder: "e.g., When a student clicks the calendar view, they should see all activities displayed by day and time. When a teacher clicks export, they should get an Excel file with all registered students for their activities."
+      value: ""
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How important is this feature? *
+      description: Help us understand the priority level
+      options:
+        - Critical - This is blocking important work
+        - High - Would significantly improve daily workflows
+        - Medium - Would be helpful but not urgent
+        - Low - Nice to have when time permits
+    validations:
+      required: true
+  
+  - type: textarea
+    id: similar-systems
+    attributes:
+      label: Examples from Other Systems
+      description: Have you seen similar features in other software that work well?
+      placeholder: "e.g., Google Calendar has a great week view layout. Canvas has a nice way to bulk message students. Our old system had a report that worked really well."
+      value: ""
+    validations:
+      required: false
+  
+  - type: input
+    id: teacher-contact
+    attributes:
+      label: Your Contact Information *
+      description: Your name and email for follow-up discussions
+      placeholder: "e.g., Ms. Johnson - mjohnson@mergington.edu"
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: collaboration
+    attributes:
+      label: Collaboration
+      description: Would you be available to help with this feature?
+      options:
+        - label: I'm available to provide more details if needed
+        - label: I could help test this feature before it goes live
+        - label: I could help train other teachers on this feature
+        - label: I have technical background and could assist with requirements
+    validations:
+      required: false
+  
+  - type: textarea
+    id: additional-thoughts
+    attributes:
+      label: Additional Ideas or Considerations
+      description: Any other thoughts, concerns, or related ideas?
+      placeholder: "e.g., This might also help with parent communication. Consider mobile compatibility. Should integrate with our existing gradebook system."
+      value: ""
+    validations:
+      required: false

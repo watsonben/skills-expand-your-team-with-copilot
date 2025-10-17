@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📞 Emergency Technical Support
+    url: mailto:tech-support@mergington.edu
+    about: For urgent technical issues that are blocking your work immediately
+  - name: 📚 User Guide and Documentation
+    url: https://github.com/watsonben/skills-expand-your-team-with-copilot/wiki
+    about: Find help articles and guides for using the school activities system
+  - name: 💬 General Questions and Discussion
+    url: https://github.com/watsonben/skills-expand-your-team-with-copilot/discussions
+    about: Ask questions, share ideas, or discuss the system with other teachers
