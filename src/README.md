@@ -6,8 +6,8 @@ A comprehensive web application that enables students to discover and register f
 
 ### For Students
 - **Browse Activities**: View all available extracurricular activities with detailed information
-- **Advanced Filtering**: Filter activities by category (sports, arts, academic, community, technology), day of the week, and time of day
-- **Search Functionality**: Search for specific activities by name
+- **Advanced Filtering**: Filter activities by day of the week and time of day (client-side), with backend support for day and time-based queries
+- **Search Functionality**: Search for specific activities by name (client-side filtering)
 - **Activity Details**: View comprehensive information including schedules, descriptions, and current participant counts
 - **Registration**: Sign up for activities (requires teacher authentication)
 
@@ -20,8 +20,8 @@ A comprehensive web application that enables students to discover and register f
 - **Modern Web Interface**: Responsive design with intuitive user experience
 - **RESTful API**: FastAPI backend with comprehensive API documentation
 - **Database Integration**: MongoDB for persistent data storage
-- **Real-time Updates**: Dynamic content loading and filtering
-- **Authentication System**: Secure teacher login with Argon2 password hashing
+- **Real-time Updates**: Dynamic content loading and filtering (category and search filtering handled client-side, day/time filtering supported server-side)
+- **Authentication System**: Secure teacher login with SHA-256 password hashing
 
 ## Activity Categories
 
