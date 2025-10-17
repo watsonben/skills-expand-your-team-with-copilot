@@ -131,3 +131,5 @@ body:
           required: true
         - label: I understand this request will be reviewed and may take time to implement
           required: true
+    validations:
+      required: true

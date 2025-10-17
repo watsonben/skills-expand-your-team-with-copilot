@@ -179,3 +179,5 @@ body:
         - label: Restarted the computer
         - label: Checked internet connection
         - label: Tried on a different device
+    validations:
+      required: false

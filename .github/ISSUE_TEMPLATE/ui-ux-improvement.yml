@@ -153,7 +153,7 @@ body:
   - type: checkboxes
     id: user-groups
     attributes:
-      label: I can represent the perspective of:
+      label: "I can represent the perspective of:"
       description: Which user groups can you speak for? (Check all that apply)
       options:
         - label: Teachers/Staff
