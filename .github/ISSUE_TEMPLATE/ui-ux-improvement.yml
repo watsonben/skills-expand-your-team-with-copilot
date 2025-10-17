@@ -1,0 +1,176 @@
+name: 🎨 UI/UX Improvement
+description: Suggest improvements to the website interface and user experience
+title: "[UI/UX]: "
+labels: ["ui-ux", "enhancement", "design"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us improve the look, feel, and usability of the activities system! Your feedback on the user interface and experience is valuable for making the system easier and more pleasant to use.
+        
+        **All fields marked with * are required.**
+  
+  - type: dropdown
+    id: improvement-area
+    attributes:
+      label: Which part of the interface needs improvement? *
+      description: Where did you notice the issue or opportunity?
+      options:
+        - Home/Activities listing page
+        - Activity details and descriptions
+        - Student registration process
+        - Teacher login area
+        - Activity filtering and search
+        - Mobile phone experience
+        - Tablet experience
+        - Overall visual design
+        - Navigation between pages
+        - Error messages and feedback
+        - Loading and performance
+        - Accessibility (ease of use for all users)
+        - Other area
+    validations:
+      required: true
+  
+  - type: textarea
+    id: current-problem
+    attributes:
+      label: What's confusing, difficult, or frustrating right now? *
+      description: Describe the current user experience issue
+      placeholder: "e.g., The text is too small to read on phones. It's hard to tell which activities are full. The register button is hard to find. Students get confused about which day activities meet."
+      value: ""
+    validations:
+      required: true
+  
+  - type: textarea
+    id: suggested-improvement
+    attributes:
+      label: What would make this better? *
+      description: Describe your idea for improving the experience
+      placeholder: "e.g., Make the text larger on mobile. Show a clear 'FULL' indicator on activities. Use a brighter color for the register button. Add day-of-week icons next to activity schedules."
+      value: ""
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: affected-users
+    attributes:
+      label: Who would benefit from this improvement? *
+      description: Which users are affected by this issue?
+      options:
+        - Students browsing activities
+        - Students registering for activities
+        - Teachers managing activities
+        - Teachers logging in
+        - Mobile device users
+        - All users
+        - Users with disabilities
+        - Parents viewing activities
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: device-context
+    attributes:
+      label: What device/situation did you notice this on? *
+      description: Context helps us understand the scope
+      options:
+        - Desktop/laptop computer
+        - Mobile phone
+        - Tablet
+        - All devices
+        - Classroom computer/projector
+        - Not device-specific
+    validations:
+      required: true
+  
+  - type: textarea
+    id: user-scenario
+    attributes:
+      label: Describe a typical user scenario
+      description: Walk us through what a user is trying to do when they encounter this issue
+      placeholder: "e.g., A student is on their phone during lunch break, trying to quickly browse activities and sign up for one before lunch ends. Currently they have to scroll through a long list and the buttons are too small to tap accurately."
+      value: ""
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: impact-level
+    attributes:
+      label: How much does this impact usability? *
+      description: How significantly does this affect users?
+      options:
+        - Major - Makes the system very difficult to use
+        - Moderate - Causes regular frustration or confusion
+        - Minor - Small annoyance that could be improved
+        - Enhancement - Would make a good experience even better
+    validations:
+      required: true
+  
+  - type: textarea
+    id: accessibility-consideration
+    attributes:
+      label: Accessibility Considerations
+      description: How might this improvement help users with different abilities or needs?
+      placeholder: "e.g., Larger text would help users with vision difficulties. Better color contrast would help colorblind users. Simpler navigation would help users who aren't tech-savvy."
+      value: ""
+    validations:
+      required: false
+  
+  - type: textarea
+    id: examples-inspiration
+    attributes:
+      label: Examples or Inspiration
+      description: Have you seen similar features done well on other websites or apps?
+      placeholder: "e.g., Amazon's search filters are really clear and easy to use. The school lunch menu website has great mobile design. Instagram's registration process is very simple."
+      value: ""
+    validations:
+      required: false
+  
+  - type: input
+    id: teacher-contact
+    attributes:
+      label: Your Contact Information *
+      description: Your name and email for follow-up questions
+      placeholder: "e.g., Ms. Johnson - mjohnson@mergington.edu"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: testing-availability
+    attributes:
+      label: Would you be available to test improvements?
+      description: Could you help us test design changes before they go live?
+      options:
+        - Yes, I'd be happy to test and provide feedback
+        - Yes, but only for major changes
+        - Maybe, depending on timing
+        - No, I don't have time for testing
+    validations:
+      required: false
+  
+  - type: checkboxes
+    id: user-groups
+    attributes:
+      label: I can represent the perspective of:
+      description: Which user groups can you speak for? (Check all that apply)
+      options:
+        - label: Teachers/Staff
+        - label: Students (through classroom feedback)
+        - label: Parents (through parent-teacher interactions)
+        - label: Mobile device users
+        - label: Users who aren't very tech-savvy
+        - label: Users with accessibility needs
+    validations:
+      required: false
+  
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Details
+      description: Any other information that would help us understand this improvement?
+      placeholder: "e.g., This issue is more noticeable during registration periods. Students have mentioned this in class. Other teachers have similar concerns."
+      value: ""
+    validations:
+      required: false

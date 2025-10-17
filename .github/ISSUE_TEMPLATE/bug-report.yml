@@ -1,0 +1,181 @@
+name: 🐛 Bug Report
+description: Report a problem or issue with the school activities system
+title: "[BUG]: "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! This helps us improve the system for everyone. Please provide as much detail as possible so we can identify and fix the problem quickly.
+        
+        **All fields marked with * are required.**
+  
+  - type: dropdown
+    id: problem-area
+    attributes:
+      label: Where is the problem occurring? *
+      description: Which part of the system has the issue?
+      options:
+        - Student activity browsing/viewing
+        - Student registration for activities
+        - Teacher login system
+        - Teacher activity management
+        - Activity filtering (by day, time, category)
+        - Student enrollment management
+        - System performance/loading
+        - Mobile device compatibility
+        - Other/Not sure
+    validations:
+      required: true
+  
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What went wrong? *
+      description: Describe the problem clearly and simply
+      placeholder: "e.g., When I try to register a student for Chess Club, I get an error message. Students can't see the new Art Club we added last week. The login button doesn't work on my phone."
+      value: ""
+    validations:
+      required: true
+  
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: What should have happened instead? *
+      description: What did you expect to work?
+      placeholder: "e.g., The student should be successfully registered for the activity. The new activity should appear in the list for students to see."
+      value: ""
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: How can we recreate this problem? *
+      description: List the steps to see the same issue
+      placeholder: |
+        1. Go to the activities page
+        2. Click on 'Chess Club'
+        3. Enter student email: john@mergington.edu
+        4. Click 'Register'
+        5. Error message appears
+      value: ""
+    validations:
+      required: true
+  
+  - type: input
+    id: error-message
+    attributes:
+      label: Error Message
+      description: If you saw an error message, please type it exactly as it appeared
+      placeholder: "e.g., 'Authentication required for this action', '404 Activity not found'"
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: device-type
+    attributes:
+      label: What device are you using? *
+      description: This helps us understand compatibility issues
+      options:
+        - Desktop/Laptop Computer
+        - Tablet (iPad, Android tablet)
+        - Mobile Phone (iPhone, Android)
+        - Chromebook
+        - Not sure
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: browser
+    attributes:
+      label: What web browser are you using?
+      description: Browser compatibility can cause issues
+      options:
+        - Chrome
+        - Safari
+        - Firefox
+        - Edge
+        - Internet Explorer
+        - Other
+        - Not sure
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this happen? *
+      description: This helps us understand the severity
+      options:
+        - Every time I try
+        - Most of the time
+        - Sometimes
+        - This was the first time
+        - Not sure
+    validations:
+      required: true
+  
+  - type: input
+    id: affected-activity
+    attributes:
+      label: Specific Activity Name
+      description: If the problem involves a specific activity, which one?
+      placeholder: "e.g., Chess Club, Soccer Team, Art Club"
+    validations:
+      required: false
+  
+  - type: input
+    id: affected-student
+    attributes:
+      label: Student Email (if applicable)
+      description: If the issue involves a specific student, what's their email?
+      placeholder: "e.g., student@mergington.edu"
+    validations:
+      required: false
+  
+  - type: input
+    id: teacher-contact
+    attributes:
+      label: Your Contact Information *
+      description: Your name and email so we can follow up if needed
+      placeholder: "e.g., Ms. Johnson - mjohnson@mergington.edu"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How urgent is this? *
+      description: How much is this problem affecting your work?
+      options:
+        - Critical - Completely blocking my work
+        - High - Significantly affecting my work
+        - Medium - Inconvenient but I can work around it
+        - Low - Minor issue that can wait
+    validations:
+      required: true
+  
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Information
+      description: Anything else that might help us understand or fix this problem?
+      placeholder: "e.g., This started happening after the school's internet was upgraded, Multiple teachers are having the same issue, This only happens with certain students"
+      value: ""
+    validations:
+      required: false
+  
+  - type: checkboxes
+    id: troubleshooting
+    attributes:
+      label: Basic Troubleshooting
+      description: Have you tried these basic steps? (Check any you've tried)
+      options:
+        - label: Refreshed the web page
+        - label: Tried a different web browser
+        - label: Cleared browser cache/cookies
+        - label: Restarted the computer
+        - label: Checked internet connection
+        - label: Tried on a different device
